@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication3.Models.Airport>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Airport_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numberofrunways)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Airport_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numberofrunways)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AirportID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AirportID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AirportID })
+        </td>
+    </tr>
+}
+
+</table>
